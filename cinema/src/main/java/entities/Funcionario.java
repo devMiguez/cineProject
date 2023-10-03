@@ -2,6 +2,18 @@ package entities;
 
 import java.sql.Date;
 
-public class Funcionario{
+import lombok.Data;
 
+@Data
+public class Funcionario extends Pessoa{
+    private Integer id;
+    private String ctps;
+    private Date dataNasc;
+    
+    public Funcionario(String nome, String cpf, String email, String tel, Integer id, String ctps, Date dataNasc) {
+        super(nome, cpf, email, tel);
+        this.id = id;
+        this.ctps = ctps;
+        this.dataNasc = dataNasc;
+    }
 }
