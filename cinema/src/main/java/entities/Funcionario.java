@@ -2,10 +2,12 @@ package entities;
 
 import java.sql.Date;
 
+import jakarta.persistence.Id;
 import lombok.Data;
 
 @Data
 public class Funcionario extends Pessoa{
+    @Id
     private Integer id;
     private String ctps;
     private Date dataNasc;
