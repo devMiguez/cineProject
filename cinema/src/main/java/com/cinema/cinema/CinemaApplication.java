@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import entities.ClienteLogin;
+import menus.ClienteLogin;
 
 @SpringBootApplication
 public class CinemaApplication {
@@ -16,24 +16,8 @@ public class CinemaApplication {
         ClienteLogin.menuCadastro();
 	}
 
+    public static void menuPrincipal(){
 
-}
-/*public static void ocuparAssento(boolean[] assentos, int numeroAssento) {
-        if (numeroAssento >= 1 && numeroAssento <= assentos.length) {
-            assentos[numeroAssento - 1] = true;
-            System.out.println("Assento " + numeroAssento + " ocupado com sucesso.");
-        } else {
-            System.out.println("Número de assento inválido.");
-        }
     }
-
-
-    public static boolean verificarAssentoOcupado(boolean[] assentos, int numeroAssento) {
-        // Verificar se o número do assento é válido
-        if (numeroAssento >= 1 && numeroAssento <= assentos.length) {
-                        return assentos[numeroAssento - 1];
-        } else {
-            System.out.println("Número de assento inválido.");
-            return false;
-        }
-    }*/
+    
+}

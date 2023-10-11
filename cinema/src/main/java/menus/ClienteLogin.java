@@ -1,12 +1,20 @@
-package entities;
+package menus;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import entities.Pessoa;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.EqualsAndHashCode;
 import lombok.Data;
 
 @Data
+@Entity
+@Table(name = "Clientes")
+@EqualsAndHashCode(callSuper = false)
 public class ClienteLogin extends Pessoa {
     @Id
     private Integer id;
@@ -16,8 +24,8 @@ public class ClienteLogin extends Pessoa {
     private static int contadorId = 1;
     private static ArrayList<ClienteLogin> listaCliente = new ArrayList<>();
 
-    public ClienteLogin(String nome, String cpf, String email, String tel, int idade, String estudante) {
-        super(nome, cpf, email, tel);
+    public ClienteLogin(String nome, String cpf, String email, String tel, int idade, String estudante, LocalDate dataCadastro) {
+        super(nome, cpf, email, tel, dataCadastro);
         this.id = ClienteLogin.contadorId;
         this.ativo = true;
         ClienteLogin.contadorId++;
@@ -65,11 +73,14 @@ public class ClienteLogin extends Pessoa {
 
     // Método que já define 3 clientes certos a minha lista
     public static void clientesCadastrados() {
+        // String data = "2023-01-03";
+        // LocalDate data_input = LocalDate.now();
+        
         ClienteLogin cliente01 = new ClienteLogin("joao", "06601927724", "joaovmiguez@gmail.com", "24988181676", 18,
-                "sim");
+                "sim",  LocalDate.parse("2020-02-02"));
         ClienteLogin cliente02 = new ClienteLogin("Rodrigo", "98897656678", "rodrigo@gmail.com", "24988181676", 45,
-                "sim");
-        ClienteLogin cliente03 = new ClienteLogin("Felipe", "988172675", "felipe@gmail.com", "24788987676", 55, "nao");
+                "sim",  LocalDate.parse("2020-02-02"));
+        ClienteLogin cliente03 = new ClienteLogin("Felipe", "988172675", "felipe@gmail.com", "24788987676", 55, "nao", LocalDate.parse("2020-02-02"));
 
         listaCliente.add(cliente01);
         listaCliente.add(cliente02);
@@ -134,7 +145,7 @@ public class ClienteLogin extends Pessoa {
         }
         System.out.println("");
 
-        ClienteLogin clienteNovo = new ClienteLogin(nome, cpf, email, tel, idade, estudante);
+        ClienteLogin clienteNovo = new ClienteLogin(nome, cpf, email, tel, idade, estudante, dataCadastro);
         listaCliente.add(clienteNovo);
         System.out.println("Cliente logado!!");
 
