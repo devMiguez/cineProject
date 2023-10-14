@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class Sala {
     private int numeroSala;
-
-    // ASSENTO - BOOLEAN
+    private boolean assento;  // mapa de assento em Sessao
+   
 }

@@ -10,7 +10,6 @@ public abstract class Pessoa {
     private String cpf;
     private String email;
     private String tel;
-    //adicionados  , data cadastro
     public static LocalDate dataCadastro;
 
     public Pessoa(String nome, String cpf, String email, String tel, LocalDate dataCadastro ) {

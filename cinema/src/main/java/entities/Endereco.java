@@ -5,14 +5,13 @@ import lombok.Data;
 @Data
 public class Endereco {
 
-    /*
-     * ID
-     * CEP
-     * LOCALIDADE
-     * NUMERO
-     * COMPLEMENTO
-     * BAIRRO
-     * CIDADE
-     */
+    // dados a serem puxados do guiacep
+    public String cep;
+    public String localidade;
+    public String numero;
+    public String complemento;
+    public String bairro;
+    public String cidade;
+
 
 }
