@@ -1,8 +1,10 @@
-package com.cinema.cinema.entities;
+package com.cinema.cinema.menus;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.cinema.cinema.entities.Cliente;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -14,22 +16,18 @@ import lombok.Data;
 @Entity
 @Table(name = "Clientes")
 @EqualsAndHashCode(callSuper = false)
-public class ClienteLogin extends Pessoa {
+public class MenuLoginCliente extends Cliente {
     @Id
     private Integer id;
     private boolean ativo;
-    private int idade;
-    private String estudante;
     private static int contadorId = 1;
-    private static ArrayList<ClienteLogin> listaCliente = new ArrayList<>();
+    private static ArrayList<MenuLoginCliente> listaCliente = new ArrayList<>();
 
-    public ClienteLogin(String nome, String cpf, String email, String tel, int idade, String estudante, LocalDate dataCadastro) {
-        super(nome, cpf, email, tel, dataCadastro);
-        this.id = ClienteLogin.contadorId;
+    public MenuLoginCliente(String nome, String cpf, String email, String tel, int idade, String estudante, LocalDate dataCadastro) {
+        super(nome, cpf, email, tel, dataCadastro, idade, estudante);
+        this.id = MenuLoginCliente.contadorId;
         this.ativo = true;
-        ClienteLogin.contadorId++;
-        this.idade = idade;
-        this.estudante = estudante;
+        MenuLoginCliente.contadorId++;
     }
 
     public static void menuCadastro() {
@@ -75,11 +73,11 @@ public class ClienteLogin extends Pessoa {
         // String data = "2023-01-03";
         // LocalDate data_input = LocalDate.now();
         
-        ClienteLogin cliente01 = new ClienteLogin("joao", "06601927724", "joaovmiguez@gmail.com", "24988181676", 18,
+        MenuLoginCliente cliente01 = new MenuLoginCliente("joao", "06601927724", "joaovmiguez@gmail.com", "24988181676", 18,
                 "sim",  LocalDate.parse("2020-02-02"));
-        ClienteLogin cliente02 = new ClienteLogin("Rodrigo", "98897656678", "rodrigo@gmail.com", "24988181676", 45,
+        MenuLoginCliente cliente02 = new MenuLoginCliente("Rodrigo", "98897656678", "rodrigo@gmail.com", "24988181676", 45,
                 "sim",  LocalDate.parse("2020-02-02"));
-        ClienteLogin cliente03 = new ClienteLogin("Felipe", "988172675", "felipe@gmail.com", "24788987676", 55, "nao", LocalDate.parse("2020-02-02"));
+        MenuLoginCliente cliente03 = new MenuLoginCliente("Felipe", "988172675", "felipe@gmail.com", "24788987676", 55, "nao", LocalDate.parse("2020-02-02"));
 
         listaCliente.add(cliente01);
         listaCliente.add(cliente02);
@@ -87,7 +85,7 @@ public class ClienteLogin extends Pessoa {
 
     }
 
-    public static void logarCliente(ArrayList<ClienteLogin> listaCliente) {
+    public static void logarCliente(ArrayList<MenuLoginCliente> listaCliente) {
         Scanner leiaDados = new Scanner(System.in);
 
         // Perguntas para cadastro de cliente que serão inseridas no ArrayList
@@ -144,18 +142,18 @@ public class ClienteLogin extends Pessoa {
         }
         System.out.println("");
 
-        ClienteLogin clienteNovo = new ClienteLogin(nome, cpf, email, tel, idade, estudante, dataCadastro);
+        MenuLoginCliente clienteNovo = new MenuLoginCliente(nome, cpf, email, tel, idade, estudante, dataCadastro);
         listaCliente.add(clienteNovo);
         System.out.println("Cliente logado!!");
 
     }
 
-    public static void listarCliente(ArrayList<ClienteLogin> listaCliente) {
+    public static void listarCliente(ArrayList<MenuLoginCliente> listaCliente) {
         if (listaCliente.isEmpty()) {
             System.out.println("Não há clientes cadastrados.");
         } else {
             System.out.println("Lista de Clientes:");
-            for (ClienteLogin cliente : listaCliente) {
+            for (MenuLoginCliente cliente : listaCliente) {
                 if (cliente.ativo) {
                     System.out.println("Id: " + cliente.getId());
                     System.out.println("Nome: " + cliente.getNome());
@@ -189,7 +187,7 @@ public class ClienteLogin extends Pessoa {
             } else {
                 leia.nextLine();// Consome a nova linha pendente após a leitura do número do Cliente (não
                                 // entendi)
-                ClienteLogin editarCliente = listaCliente.get(numeroCliente - 1);
+                MenuLoginCliente editarCliente = listaCliente.get(numeroCliente - 1);
 
                 System.out.println("Nome atual: " + editarCliente.getNome());
                 dadosNovos = leia.nextLine();
@@ -240,7 +238,7 @@ public class ClienteLogin extends Pessoa {
             System.out.println("Número de cliente inválido!! presta atenção!!");
             excluirCliente();
         } else {
-            ClienteLogin excluirCliente = listaCliente.get(numeroExcluir - 1);
+            MenuLoginCliente excluirCliente = listaCliente.get(numeroExcluir - 1);
 
             if (numeroExcluir == excluirCliente.getId()) {
                 excluirCliente.setAtivo(false);

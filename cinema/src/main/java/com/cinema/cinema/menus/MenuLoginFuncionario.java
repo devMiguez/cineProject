@@ -1,10 +1,12 @@
-package com.cinema.cinema.entities;
+package com.cinema.cinema.menus;
 
 
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import com.cinema.cinema.entities.Funcionario;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,19 +18,19 @@ import lombok.Data;
 @Entity
 @Table(name = "Funcionario")
 @EqualsAndHashCode(callSuper = false)
-public class FuncionarioLogin extends Funcionario {
+public class MenuLoginFuncionario extends Funcionario {
     @Id
     private Integer id;
     private boolean ativo;
     private static int contadorId = 1;
-    private static ArrayList<FuncionarioLogin> listaFunc = new ArrayList<>();
+    private static ArrayList<MenuLoginFuncionario> listaFunc = new ArrayList<>();
 
  
-    public FuncionarioLogin(String nome, String cpf, String email, String tel, Integer id, String ctps, Date dataNasc,  LocalDate dataCadastro) {
+    public MenuLoginFuncionario(String nome, String cpf, String email, String tel, Integer id, String ctps, Date dataNasc,  LocalDate dataCadastro) {
         super(nome, cpf, email, tel, id, ctps, dataNasc, dataCadastro);
-        id = FuncionarioLogin.contadorId;
+        id = MenuLoginFuncionario.contadorId;
         this.ativo = true;
-        FuncionarioLogin.contadorId++;
+        MenuLoginFuncionario.contadorId++;
     }
 
     public static void menuCadastro() {
@@ -38,7 +40,7 @@ public class FuncionarioLogin extends Funcionario {
         funcCadastrados();
         do {
             System.out.println("-----------------------------");
-            System.out.println("--------MENU-CADASTRO--------");
+            System.out.println("--------MENU-LOGIN--------");
             System.out.println("-----------------------------");
 
             System.out.println(
@@ -74,10 +76,10 @@ public class FuncionarioLogin extends Funcionario {
         // String data = "2023-01-03";
         // LocalDate data_input = LocalDate.now();
         
-        FuncionarioLogin funcionario01 = new FuncionarioLogin("joao", "06601927724", "joaovmiguez@gmail.com", "24988181676", 01, "010101", dataNasc, LocalDate.parse("2020-02-02"));
-        FuncionarioLogin funcionario02 = new FuncionarioLogin("Rodrigo", "98897656678", "rodrigo@gmail.com", "24988181676", 02,
+        MenuLoginFuncionario funcionario01 = new MenuLoginFuncionario("joao", "06601927724", "joaovmiguez@gmail.com", "24988181676", 01, "010101", dataNasc, LocalDate.parse("2020-02-02"));
+        MenuLoginFuncionario funcionario02 = new MenuLoginFuncionario("Rodrigo", "98897656678", "rodrigo@gmail.com", "24988181676", 02,
                 "020202",  dataNasc, LocalDate.parse("2020-02-02"));
-        FuncionarioLogin funcionario03 = new FuncionarioLogin("Felipe", "988172675", "felipe@gmail.com", "24788987676", 03, "030303", dataNasc, LocalDate.parse("2020-02-02"));
+        MenuLoginFuncionario funcionario03 = new MenuLoginFuncionario("Felipe", "988172675", "felipe@gmail.com", "24788987676", 03, "030303", dataNasc, LocalDate.parse("2020-02-02"));
 
         listaFunc.add(funcionario01);
         listaFunc.add(funcionario02);
@@ -85,7 +87,7 @@ public class FuncionarioLogin extends Funcionario {
 
     }
 
-    public static void logarFunc(ArrayList<FuncionarioLogin> listaFunc) {
+    public static void logarFunc(ArrayList<MenuLoginFuncionario> listaFunc) {
         Scanner leiaDados = new Scanner(System.in);
 
         // Perguntas para cadastro de funcionários que serão inseridas no ArrayList
@@ -133,18 +135,18 @@ public class FuncionarioLogin extends Funcionario {
         System.out.println("");
 
 
-        FuncionarioLogin funcNovo = new FuncionarioLogin(nome, cpf, email, tel, null, tel, dataNasc, dataCadastro);
+        MenuLoginFuncionario funcNovo = new MenuLoginFuncionario(nome, cpf, email, tel, null, tel, dataNasc, dataCadastro);
         listaFunc.add(funcNovo);   //ID seia null????
         System.out.println("Funcionário logado!!");
 
     }
 
-    public static void listarFunc(ArrayList<FuncionarioLogin> listaFunc) {
+    public static void listarFunc(ArrayList<MenuLoginFuncionario> listaFunc) {
         if (listaFunc.isEmpty()) {
             System.out.println("Não há funcionários cadastrados.");
         } else {
             System.out.println("Lista de funcionários:");
-            for (FuncionarioLogin funcionario : listaFunc) {
+            for (MenuLoginFuncionario funcionario : listaFunc) {
                 if (funcionario.ativo) {
                     System.out.println("Id: " + funcionario.getId());
                     System.out.println("Nome: " + funcionario.getNome());
@@ -177,7 +179,7 @@ public class FuncionarioLogin extends Funcionario {
             } else {
                 leia.nextLine();// Consome a nova linha pendente após a leitura do número do Funcionario (não
                                 // entendi)
-                FuncionarioLogin editarFuncLogin = listaFunc.get(numeroFunc - 1);
+                MenuLoginFuncionario editarFuncLogin = listaFunc.get(numeroFunc - 1);
 
                 System.out.println("Nome atual: " + editarFuncLogin.getNome());
                 dadosNovos = leia.nextLine();
@@ -218,7 +220,7 @@ public class FuncionarioLogin extends Funcionario {
             System.out.println("Número de funcionário inválido!! presta atenção!!");
             excluirFunc();
         } else {
-            FuncionarioLogin excluirFunc = listaFunc.get(numeroExcluir - 1);
+            MenuLoginFuncionario excluirFunc = listaFunc.get(numeroExcluir - 1);
 
             if (numeroExcluir == excluirFunc.getId()) {
                 excluirFunc.setAtivo(false);

@@ -3,10 +3,16 @@ package com.cinema.cinema.entities;
 import java.sql.Date;
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@Entity
+@Table(name = "Funcionarios")
+@EqualsAndHashCode(callSuper = false)
 public class Funcionario extends Pessoa {
     @Id
     private Integer id;
