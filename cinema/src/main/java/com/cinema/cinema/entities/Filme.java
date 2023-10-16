@@ -1,4 +1,4 @@
-package entities;
+package com.cinema.cinema.entities;
 
 public class Filme {
     private String titulo;

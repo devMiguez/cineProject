@@ -1,7 +1,6 @@
-package entities;
+package com.cinema.cinema.entities;
 
-import enums.FormaDePagamento;
-import menus.ClienteLogin;
+import com.cinema.cinema.enums.FormaDePagamento;
 
 public class Pedido {
     private Funcionario funcionario; // <- EMISSOR

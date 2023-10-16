@@ -1,4 +1,4 @@
-package entities;
+package com.cinema.cinema.entities;
 
 import lombok.Getter;
 

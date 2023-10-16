@@ -1,4 +1,4 @@
-package entities;
+package com.cinema.cinema.entities;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;

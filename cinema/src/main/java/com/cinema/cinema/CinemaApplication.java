@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import menus.ClienteLogin;
+import com.cinema.cinema.entities.ClienteLogin;
 
 @SpringBootApplication
 public class CinemaApplication {

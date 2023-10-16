@@ -1,10 +1,9 @@
-package menus;
+package com.cinema.cinema.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import entities.Pessoa;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;

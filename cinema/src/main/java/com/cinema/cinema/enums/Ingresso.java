@@ -1,4 +1,4 @@
-package enums;
+package com.cinema.cinema.enums;
 
 import lombok.Getter;
 

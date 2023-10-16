@@ -1,4 +1,4 @@
-package menus;
+package com.cinema.cinema.entities;
 
 
 import java.sql.Date;
@@ -6,8 +6,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import entities.Funcionario;
-import entities.Pessoa;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
