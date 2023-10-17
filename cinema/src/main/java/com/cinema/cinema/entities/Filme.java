@@ -14,5 +14,12 @@ public class Filme {
     private String titulo;
     private String genero;
     private int classificacao;
-    
+
+    public Filme(Integer id, String titulo, String genero, int classificacao) {
+        this.id = id;
+        this.titulo = titulo;
+        this.genero = genero;
+        this.classificacao = classificacao;
+    }
+
 }
