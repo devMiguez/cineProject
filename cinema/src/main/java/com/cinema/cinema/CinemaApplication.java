@@ -33,6 +33,7 @@ public class CinemaApplication {
             case 1:
                 MenuLoginCliente.menuCadastro();
                 Pedido clientePedido = new Pedido();
+                clientePedido.escolherFilme();
                 clientePedido.escolherTipoIngresso();
                 break;
             case 2:

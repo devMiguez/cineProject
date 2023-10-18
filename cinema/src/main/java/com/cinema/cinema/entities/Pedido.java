@@ -88,16 +88,20 @@ public class Pedido implements ObjetosDoPedido {
 
         switch (escolhaIngresso) {
             case "m":
-                for(MenuLoginCliente cliente : MenuLoginCliente.listaCliente){
-                    if((cliente.getIdade() < 18) || (cliente.getEstudante().equalsIgnoreCase("sim"))){
-                        System.out.println("Meia entrada concedida!!");
-                        System.out.println("INGRESSO: " + Ingresso.MEIA);
-                        break;
-                    }else{
-                        System.out.println("Meia entrada negada!!");
-                        System.out.println("INGRESSO: " + Ingresso.INTEIRA);
+                boolean meiaConcedida = false; // Inicializa como falso e só vai ser verdadeiro se algum cliente atender aos requisitos da meia entrada
+                for (MenuLoginCliente cliente : MenuLoginCliente.listaCliente) {
+                    if (cliente.getIdade() < 18 && cliente.getEstudante().equalsIgnoreCase("sim")) {
+                        meiaConcedida = true;
                         break;
                     }
+                }
+                
+                if (meiaConcedida) {
+                    System.out.println("Meia entrada concedida!!");
+                    System.out.println("INGRESSO: " + Ingresso.MEIA);
+                } else {
+                    System.out.println("Meia entrada negada!!");
+                    System.out.println("INGRESSO: " + Ingresso.INTEIRA);
                 }
                 break;
             case "i":
@@ -111,7 +115,7 @@ public class Pedido implements ObjetosDoPedido {
 
     @Override
     public void escolherPipoca() {
-
+        
     }
 
     @Override
