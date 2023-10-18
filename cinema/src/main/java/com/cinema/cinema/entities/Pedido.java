@@ -1,6 +1,8 @@
 package com.cinema.cinema.entities;
 
 import com.cinema.cinema.enums.FormaDePagamento;
+import com.cinema.cinema.enums.Pipoca;
+import com.cinema.cinema.enums.Refrigerante;
 import com.cinema.cinema.interfaces.ObjetosDoPedido;
 import com.cinema.cinema.menus.MenuLoginCliente;
 import java.util.Scanner;
@@ -115,12 +117,72 @@ public class Pedido implements ObjetosDoPedido {
 
     @Override
     public void escolherPipoca() {
-        
+        String escolherPipoca;
+
+        System.out.println("----------------");
+        System.out.println("COMPRA DE PIPOCA");
+        System.out.println("----------------");
+        System.out.println("PEQUENA : " + Pipoca.PEQUENA.getValor());
+        System.out.println("MÉDIA: " + Pipoca.MEDIA.getValor());
+        System.out.println("GRANDE: " + Pipoca.GRANDE.getValor());
+        System.out.println(" ");
+
+        System.out.println("Qual tamanho você deseja?");
+        System.out.println("Digite [p] para pequena\nDigite [m] para média\nDigite [g] para grande");
+        Scanner leiaCompra = new Scanner(System.in);
+        escolherPipoca = leiaCompra.nextLine().toLowerCase();
+
+        switch (escolherPipoca) {
+            case "p":
+                System.out.println("Pipoca pequena comprada!!");
+                break;
+            case "m":
+                System.out.println("Pipoca média comprada!!");
+                break;
+            case "g":
+                System.out.println("Pipoca grande comprada!!");
+                break;
+            default:
+                break;
+        }
+
+
     }
 
     @Override
     public void escolherRefrigerante() {
+        String escolherRefrigerante;
 
+        System.out.println("----------------");
+        System.out.println("COMPRA DE REFRIGERANTE");
+        System.out.println("----------------");
+        System.out.println("COCA-COLA : " + Refrigerante.COCACOLA.getValor());
+        System.out.println("PEPSITWIST: " + Refrigerante.PEPSITWIST.getValor());
+        System.out.println("MINEIRINHO: " + Refrigerante.MINEIRINHO.getValor());
+        System.out.println("FLESHA: " + Refrigerante.FLESHA.getValor());
+        System.out.println(" ");
+
+        System.out.println("Qual refrigerante você deseja comprar!!");
+        System.out.println("Digite [c] para COCA-COLA\nDigite [p] para PEPSITWIST\nDigite [m] para MINEIRINHO\nDigite [f] para FLESHA");
+        Scanner leiaCompra = new Scanner(System.in);
+        escolherRefrigerante = leiaCompra.nextLine().toLowerCase();
+
+        switch (escolherRefrigerante) {
+            case "c":
+                System.out.println("Coca cola comprada!!");
+                break;
+            case "p":
+                System.out.println("Pepsi-twist comprada!!");
+                break;
+            case "m":
+                System.out.println("Mineirinho comprado!!");
+                break;
+            case "f":
+                System.out.println("Flesha comprado!!");
+                break;
+            default:
+                break;
+        }
     }
 
 

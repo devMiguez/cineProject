@@ -35,6 +35,8 @@ public class CinemaApplication {
                 Pedido clientePedido = new Pedido();
                 clientePedido.escolherFilme();
                 clientePedido.escolherTipoIngresso();
+                clientePedido.escolherPipoca();
+                clientePedido.escolherRefrigerante();
                 break;
             case 2:
                 MenuLoginFuncionario.menuCadastro();
