@@ -128,7 +128,7 @@ public class Pedido implements ObjetosDoPedido {
         System.out.println(" ");
 
         System.out.println("Qual tamanho você deseja?");
-        System.out.println("Digite [p] para pequena\nDigite [m] para média\nDigite [g] para grande");
+        System.out.println("Digite [p] para pequena\nDigite [m] para média\nDigite [g] para grande\nDigite [n] se não deseja comprar pipoca");
         Scanner leiaCompra = new Scanner(System.in);
         escolherPipoca = leiaCompra.nextLine().toLowerCase();
 
@@ -142,6 +142,8 @@ public class Pedido implements ObjetosDoPedido {
             case "g":
                 System.out.println("Pipoca grande comprada!!");
                 break;
+            case "n":
+                System.out.println("Pipoca não comprada!!");
             default:
                 break;
         }
@@ -163,7 +165,7 @@ public class Pedido implements ObjetosDoPedido {
         System.out.println(" ");
 
         System.out.println("Qual refrigerante você deseja comprar!!");
-        System.out.println("Digite [c] para COCA-COLA\nDigite [p] para PEPSITWIST\nDigite [m] para MINEIRINHO\nDigite [f] para FLESHA");
+        System.out.println("Digite [c] para COCA-COLA\nDigite [p] para PEPSITWIST\nDigite [m] para MINEIRINHO\nDigite [f] para FLESHA\nDigite [n] se não que comprar refrigerante");
         Scanner leiaCompra = new Scanner(System.in);
         escolherRefrigerante = leiaCompra.nextLine().toLowerCase();
 
@@ -179,6 +181,9 @@ public class Pedido implements ObjetosDoPedido {
                 break;
             case "f":
                 System.out.println("Flesha comprado!!");
+                break;
+            case "n":
+                System.out.println("Refrigerante não comprado");
                 break;
             default:
                 break;
