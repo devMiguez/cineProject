@@ -16,12 +16,15 @@ public class Filme {
     private String titulo;
     private String genero;
     private String classificacao;
-    private static ArrayList<Filme> listaFilme = new ArrayList<>();
+    private static int contadorId = 1;
+    static ArrayList<Filme> listaFilme = new ArrayList<>();
 
     public Filme( String titulo, String genero, String classificacao) {
         this.titulo = titulo;
         this.genero = genero;
         this.classificacao = classificacao;
+        this.id = Filme.contadorId;
+        Filme.contadorId++;
     }
 
     public static void filmesEmCartaz(){

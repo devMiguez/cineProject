@@ -21,13 +21,14 @@ public class MenuLoginCliente extends Cliente {
     private Integer id;
     private boolean ativo;
     private static int contadorId = 1;
-    private static ArrayList<MenuLoginCliente> listaCliente = new ArrayList<>();
+    public static ArrayList<MenuLoginCliente> listaCliente = new ArrayList<>();
 
     public MenuLoginCliente(String nome, String cpf, String email, String tel, int idade, String estudante, LocalDate dataCadastro) {
         super(nome, cpf, email, tel, dataCadastro, idade, estudante);
         this.id = MenuLoginCliente.contadorId;
         this.ativo = true;
         MenuLoginCliente.contadorId++;
+        
     }
 
     public static void menuCadastro() {

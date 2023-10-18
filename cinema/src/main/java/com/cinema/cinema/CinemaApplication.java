@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.cinema.cinema.entities.Pedido;
 import com.cinema.cinema.menus.MenuLoginCliente;
 import com.cinema.cinema.menus.MenuLoginFuncionario;
 
@@ -14,6 +15,7 @@ public class CinemaApplication {
     public static void main(String[] args) {
         SpringApplication.run(CinemaApplication.class, args);
 
+
         menuPrincipal();
     }
 
@@ -21,14 +23,17 @@ public class CinemaApplication {
         int numeroDigitado;
 
         Scanner leiaNumero = new Scanner(System.in);
-        System.out.println(
-                "Digite [1] para logar como cliente e realizar suas compras!! \nDigite [2] para logar como funcionario!!");
+        System.out.println("----------------");
+        System.out.println("---CINE SENAI---");
+        System.out.println("----------------");
+        System.out.println("Digite [1] entrar no cinema e realizar suas compras!! \nDigite [2] para logar como funcionario!!");
         numeroDigitado = leiaNumero.nextInt();
 
         switch (numeroDigitado) {
             case 1:
                 MenuLoginCliente.menuCadastro();
-
+                Pedido clientePedido = new Pedido();
+                clientePedido.escolherTipoIngresso();
                 break;
             case 2:
                 MenuLoginFuncionario.menuCadastro();
